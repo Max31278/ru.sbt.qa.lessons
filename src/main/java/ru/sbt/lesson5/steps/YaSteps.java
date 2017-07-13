@@ -15,9 +15,9 @@ public class YaSteps {
     }
 
     @Step("Выполнен поиск по тексту {0}")
-    public void search(String text) {
-        yaPage.inputText.clear();
-        yaPage.inputText.type(text);
+    public void init(String login, String password) {
+        yaPage.inputLogin.type(login);
+        yaPage.inputPassword.type(password);
         yaPage.btnSearch.click();
     }
 

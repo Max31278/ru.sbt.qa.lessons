@@ -8,13 +8,19 @@ import net.thucydides.core.annotations.DefaultUrl;
 /**
  * Created by dmitriy on 22.06.17.
  */
-@DefaultUrl("https://ya.ru/")
+@DefaultUrl("https://mail.ru/")
 public class Ya extends PageObject {
 
     @FindBy(id = "text")
     public WebElementFacade inputText;
 
-    @FindBy(xpath = "//button/span[text() = 'Найти']/..")
+    @FindBy(id = "mailbox__login")
+    public WebElementFacade inputLogin;
+
+    @FindBy(id = "mailbox__password")
+    public WebElementFacade inputPassword;
+
+    @FindBy(xpath = "//button/span[text()='Войти']/..")
     public WebElementFacade btnSearch;
 
 }

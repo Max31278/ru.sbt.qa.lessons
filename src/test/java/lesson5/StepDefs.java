@@ -20,11 +20,7 @@ public class StepDefs {
         yaSteps.openYa();
     }
 
-    @Когда("в поле поиск введен текст \"(.*?)\"")
-    public void searchText(String text){
-        yaSteps.search(text);
 
-    }
 
     @Тогда("выполен поиск")
     public void thenYa() {
