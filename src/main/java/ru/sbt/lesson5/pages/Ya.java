@@ -11,9 +11,6 @@ import net.thucydides.core.annotations.DefaultUrl;
 @DefaultUrl("https://mail.ru/")
 public class Ya extends PageObject {
 
-    @FindBy(id = "text")
-    public WebElementFacade inputText;
-
     @FindBy(id = "mailbox__login")
     public WebElementFacade inputLogin;
 
@@ -22,5 +19,23 @@ public class Ya extends PageObject {
 
     @FindBy(xpath = "//button/span[text()='Войти']/..")
     public WebElementFacade btnSearch;
+
+    @FindBy(xpath = "//span[text() = 'Написать письмо']/..")
+    public WebElementFacade btnWrite;
+
+    @FindBy(xpath = "//div/textarea[@tabindex='4']/..")
+    public WebElementFacade inputWhoom;
+
+    @FindBy(xpath = "//div/input[@tabindex='7']/..")
+    public WebElementFacade inputTopic;
+
+    @FindBy(id = "tinymce")
+    public WebElementFacade inputText;
+
+    @FindBy(xpath = "//div/span[text() = 'Отправить']/..")
+    public WebElementFacade btnSend;
+
+    @FindBy(xpath = "//div[@class='message-sent__title']/..")
+    public WebElementFacade getResult;
 
 }

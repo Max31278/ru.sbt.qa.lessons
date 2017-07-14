@@ -3,6 +3,7 @@ package lesson5;
 import cucumber.api.java.ru.Дано;
 import cucumber.api.java.ru.Когда;
 import cucumber.api.java.ru.Тогда;
+import cucumber.api.java.uk.Нехай;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 import ru.sbt.lesson5.steps.YaSteps;
@@ -15,15 +16,23 @@ public class StepDefs {
     @Steps
     YaSteps yaSteps;
 
-    @Дано("открыта страница быстрого поиска Яндекс")
+    @Дано("открыта страница почты mail")
     public void openPageYa(){
         yaSteps.openYa();
     }
 
+    @Когда("Выполнен вход на аккаунт почты")
+    public void initPage(String login, String password){
+        yaSteps.init(login, password);
+    }
 
+    @Когда("Отправленно письмо")
+    public void send(String whom, String topic, String text){
+        yaSteps.send(whom, topic, text);
+    }
 
-    @Тогда("выполен поиск")
+    @Тогда("Проверка отправки")
     public void thenYa() {
-        Assert.assertTrue(yaSteps.isContainsResult());
+        Assert.assertEquals("Ваше письмо отправлено. Перейти во Входящие", yaSteps.check());
     }
 }

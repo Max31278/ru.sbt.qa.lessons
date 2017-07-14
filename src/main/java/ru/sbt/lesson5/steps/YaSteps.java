@@ -14,15 +14,25 @@ public class YaSteps {
         yaPage.open();
     }
 
-    @Step("Выполнен поиск по тексту {0}")
+    @Step("Выполнить вход в почту")
     public void init(String login, String password) {
         yaPage.inputLogin.type(login);
         yaPage.inputPassword.type(password);
         yaPage.btnSearch.click();
     }
 
-    @Step("Успешно открыта страница с результатом")
-    public boolean isContainsResult(){
-        return yaPage.containsElements("[class = 'serp-list']");
+    @Step("Отправить письмо")
+    public void send(String whom, String topic, String text){
+        yaPage.inputWhoom.type(whom);
+        yaPage.inputTopic.type(topic);
+        yaPage.inputText.type(text);
+        yaPage.btnSend.click();
     }
+
+    @Step("Проверить отправку письма")
+    public String check(){
+        return yaPage.getResult.getText();
+    }
+
+
 }
